@@ -6,7 +6,7 @@ node {
          app = docker.build("hello")
      }
      stage('Push image') {
-         docker.withRegistry('https://repo.nky.wjcloud.co.kr/nky', 'harbor') {
+         docker.withRegistry('https://repo.nky.wjcloud.co.kr', 'harbor') {
              app.push("${env.BUILD_NUMBER}")
              app.push("latest")
          }
