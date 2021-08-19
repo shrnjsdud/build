@@ -3,10 +3,10 @@ node {
          checkout scm
      }
      stage('Build image') {
-         app = docker.build("nky/hello")
+         app = docker.build("hello")
      }
      stage('Push image') {
-         docker.withRegistry('https://repo.nky.wjcloud.co.kr', 'harbor') {
+         docker.withRegistry('https://repo.nky.wjcloud.co.kr/nky', 'harbor') {
              app.push("${env.BUILD_NUMBER}")
              app.push("latest")
          }
