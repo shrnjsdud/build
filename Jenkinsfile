@@ -12,7 +12,7 @@ node {
          }
      }
      stage('Deploy image') {
-          sh 'pwd'         
+          sh 'kubectl get svc'         
           
           
      }
