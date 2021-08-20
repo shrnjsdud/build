@@ -12,7 +12,7 @@ node {
          }
      }
      stage('Deploy image') {
-          sh 'kubectl get svc'         
+          sh '/home/ec2-user/kubectl get svc'         
           
           
      }
