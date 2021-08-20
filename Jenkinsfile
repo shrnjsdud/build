@@ -12,9 +12,8 @@ node {
          }
      }
      stage('Deploy image') {
-          sh 'cd ./deploy/'         
-          sh 'git commit -m "updated the image tag" '
-          sh 'git push'
+          sh 'kubectl get svc'         
+          
           
      }
 
