@@ -11,4 +11,9 @@ node {
              app.push("latest")
          }
      }
+     stage('Deploy image') {
+         sh 'kubectl apply -f deployment-nginx.yaml'
+     }
+
+
  }
