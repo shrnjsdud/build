@@ -16,8 +16,7 @@ node {
           sh 'kustomize edit set image repo.nky.wjcloud.co.kr/nky/hello:${BUILD_NUMBER}'
           sh 'kustomize build | kubectl apply -f -'
           sh 'git commit -m "updated the image tag" '
-          sh 'git push'         
-          
+          sh 'git push'
           
      }
 
