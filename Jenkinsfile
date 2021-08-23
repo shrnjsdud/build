@@ -21,7 +21,7 @@ node {
           sh 'git status'
           sh 'git commit -m "update"'
           
-          sh 'git push shrnjsdud/nky'
+          sh 'git push shrnjsdud/nky master'
               
           
         
