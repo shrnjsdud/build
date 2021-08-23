@@ -17,15 +17,18 @@ node {
           sh 'kubectl --kubeconfig=/var/lib/jenkins/config  get svc' 
           sh 'cd ./deploy && kustomize edit set image repo.nky.wjcloud.co.kr/nky/hello:$BUILD_NUMBER'
           sh 'touch init'
-          sshagent(['shrnjsdud@gmail.com']) {
           sh 'git add .'
           sh 'git status'
           sh 'git commit -m "update"'          
-          sh 'git push'
-          }
+          
+          
         
               
-          
+          withCredentials([usernamePassword(credentialsId: '91c7f389-bc08-40ca-b1d7-9e4a098353c0',
+                 usernameVariable: 'username',
+                 passwordVariable: 'password')]){
+          sh("git push https://$username:$password@github.com/shrnjsdud/nky.git master")
+           }
         
 
                    
