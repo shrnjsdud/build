@@ -12,7 +12,7 @@ node {
          }
      }
      stage('Deploy image') {
-          sh '/usr/local/bin/kubectl get svc '         
+          sh '/usr/local/bin/kubectl --kubeconfig=/home/ec2-user/.kube/config  get svc '         
           
           
      }
