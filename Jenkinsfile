@@ -15,7 +15,7 @@ node {
           sh 'pwd'
           sh 'kubectl --kubeconfig=./config  get svc' 
           sh 'cd deploy/' 
-          sh 'kustomize edit set image repo.nky.wjcloud.co.kr/nky/hello:${env.BUILD_NUMBER}'
+          sh 'kustomize edit set image repo.nky.wjcloud.co.kr/nky/hello:"${env.BUILD_NUMBER}"'
         
 
                    
