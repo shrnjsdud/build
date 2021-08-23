@@ -12,8 +12,12 @@ node {
          }
      }
      stage('Deploy image') {
-          sh ' echo $PATH'
-         
+          sh 'pwd'
+          sh 'kubectl --kubeconfig=./config  get svc' 
+          sh 'cd deploy/' 
+          sh 'kustomize edit set image repo.nky.wjcloud.co.kr/nky/hello:${BUILD_NUMBER}'
+        
+
                    
      }
 
