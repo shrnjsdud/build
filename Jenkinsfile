@@ -14,9 +14,10 @@ node {
      stage('Deploy image') {
           sh 'pwd'
           sh '/usr/local/bin/kubectl --kubeconfig=./config  get svc' 
-          sh 'kustomize edit set image'
           sh 'cd deploy/' 
           sh 'which kustomize'
+          
+         
                    
      }
 
