@@ -28,7 +28,7 @@ node {
           withCredentials([usernamePassword(credentialsId: '91c7f389-bc08-40ca-b1d7-9e4a098353c0',
                  usernameVariable: 'username',
                  passwordVariable: 'password')]){
-          sh("git push https://$username:$password@github.com/shrnjsdud/nky.git master")
+          sh("git push master")
            }
         
 
