@@ -15,7 +15,7 @@ node {
           sh 'pwd'
           sh '/usr/local/bin/kubectl --kubeconfig=./config  get svc' 
           sh 'cd deploy/' 
-          sh 'echo $PATH'
+          sh 'echo $PATH '
           
          
                    
