@@ -20,7 +20,7 @@ node {
           sh 'git add .'
           sh 'git status'
           sh 'git commit -m "update"'
-          sh 'git checkout -b "master"'
+          
           sh 'git push -u origin master'
               
           
