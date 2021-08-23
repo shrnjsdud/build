@@ -17,7 +17,7 @@ node {
           sh 'cd deploy/' 
           sh 'kustomize edit set image repo.nky.wjcloud.co.kr/nky/hello:${BUILD_NUMBER}'
           sh 'git commit -a -m "updated the image tag"'
-          sh 'git push '
+          sh 'git push'
           
          
                    
