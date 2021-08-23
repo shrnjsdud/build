@@ -21,7 +21,7 @@ node {
           sh 'git status'
           sh 'git commit -m "update"'
           
-          sh 'git push -u origin master'
+          sh 'git push origin master'
               
           
         
