@@ -15,6 +15,7 @@ node {
           sh 'pwd'
           sh '/usr/local/bin/kubectl --kubeconfig=./config  get svc' 
           sh 'cd deploy/' 
+          sh 'which kubectl'
           sh 'which kustomize'
           
          
