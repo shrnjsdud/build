@@ -16,7 +16,7 @@ node {
           sh 'pwd'
           sh 'kubectl --kubeconfig=/var/lib/jenkins/config  get svc' 
           sh 'cd ./deploy && kustomize edit set image repo.nky.wjcloud.co.kr/nky/hello:$BUILD_NUMBER'
-          sh 'git pull'
+          sh 'git pull master'
           sh 'touch init'
           sh 'git add .'
           sh 'git status'
