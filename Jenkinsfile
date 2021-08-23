@@ -15,7 +15,7 @@ node {
           sh 'pwd'
           sh 'kubectl --kubeconfig=./config  get svc' 
           sh 'cd ./deploy && kustomize edit set image repo.nky.wjcloud.co.kr/nky/hello:$BUILD_NUMBER'
-          sh 'git commit -a -m "updated the image tag"'
+          sh 'git add. && git commit -a -m "updated the image tag"'
           sh 'git push origin master'
          
         
