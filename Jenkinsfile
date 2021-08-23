@@ -17,11 +17,13 @@ node {
           sh 'kubectl --kubeconfig=/var/lib/jenkins/config  get svc' 
           sh 'cd ./deploy && kustomize edit set image repo.nky.wjcloud.co.kr/nky/hello:$BUILD_NUMBER'
           sh 'touch init'
+          sshagent(['shrnjsdud@gmail.com']) {
           sh 'git add .'
           sh 'git status'
-          sh 'git commit -m "update"'
-          
-          sh 'git push https://github.com/shrnjsdud/nky master'
+          sh 'git commit -m "update"'          
+          sh 'git push'
+          }
+        
               
           
         
