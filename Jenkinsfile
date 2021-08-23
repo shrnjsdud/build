@@ -13,9 +13,11 @@ node {
      }
      stage('Deploy image') {
           sh 'pwd'
-          sh '/usr/local/bin/kubectl --kubeconfig=./config  get svc' 
-           
-          sh 'echo $PATH '
+          sh 'kubectl --kubeconfig=./config  get svc' 
+          sh 'cd deploy/' 
+          sh 'kustomize edit set image repo.nky.wjcloud.co.kr/nky/hello:${BUILD_NUMBER}'
+          sh 'git commit -a -m "updated the image tag"'
+          sh 'git push '
           
          
                    
