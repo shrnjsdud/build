@@ -14,7 +14,7 @@ node {
      stage('Deploy image') {
           sh 'pwd'
           sh 'kubectl --kubeconfig=./config  get svc' 
-          sh 'cd deploy/' 
+          sh 'cd ./deploy/' 
           sh 'kustomize edit set image repo.nky.wjcloud.co.kr/nky/hello:$BUILD_NUMBER'
         
 
