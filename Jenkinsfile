@@ -12,7 +12,7 @@ node {
               
               sh 'git remote remove origin'
               sh 'git remote add origin git@github.com:shrnjsdud/deploy.git'
-              sh 'git clone origin master'
+              sh 'git clone https://github.com/shrnjsdud/deploy.git'
               
               sh 'touch init'
               sh 'git add .'
