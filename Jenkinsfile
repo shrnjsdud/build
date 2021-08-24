@@ -27,7 +27,9 @@ node {
               sh 'git push origin master' 
                    
               }   
+               
           }
+         sh 'kubectl --kubeconfig=/var/lib/jenkins/config  get svc' 
      }
                    
      
