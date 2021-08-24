@@ -14,6 +14,8 @@ node {
      stage('Deploy image') {
           dir("deploy"){
               sshagent(credentials : ['9377ca92-2995-4ae6-8566-34304131fffd']) {
+              sh 'git remote remove origin'
+              sh 'git remote add origin git@github.com:shrnjsdud/deploy.git'
               sh 'git pull'
               sh 'kustomize edit set image repo.nky.wjcloud.co.kr/nky/hello:$BUILD_NUMBER'   
               sh 'kustomize build > deploy.yaml' 
