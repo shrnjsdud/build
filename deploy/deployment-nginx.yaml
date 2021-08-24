@@ -18,7 +18,8 @@ spec:
       - name: nky
       containers:
       - name: nginx
-        image: repo.nky.wjcloud.co.kr/nky/hello:latest
+        image: repo.nky.wjcloud.co.kr/nky/hello:{build_number}
+
         ports:
         - containerPort: 80
         resources:
