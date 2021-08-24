@@ -6,7 +6,7 @@ node {
      }
     
      stage('Deploy image') {
-          sh 'git clone https:github.com/shrnjsdud/deploy.git'
+          sh 'git clone https://github.com/shrnjsdud/deploy.git'
           dir("deploy"){
               sshagent(credentials : ['9377ca92-2995-4ae6-8566-34304131fffd']) {
               sh 'git remote show'
