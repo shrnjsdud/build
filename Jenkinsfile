@@ -11,7 +11,7 @@ node {
              
               sh 'git remote remove origin'
               sh 'git remote add origin git@github.com:shrnjsdud/deploy.git'
-              sh 'git pull'
+              sh 'git pull origin master'
               sh 'touch init'
               sh 'git add .'
               sh 'git commit -m "upgrade"'
