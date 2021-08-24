@@ -29,7 +29,7 @@ node {
               }   
                
           }
-         sh 'kubectl --kubeconfig=/var/lib/jenkins/config  get svc' 
+         sh 'kubectl --kubeconfig=/var/lib/jenkins/config apply -f ./deploy/deploy.yaml' 
      }
                    
      
