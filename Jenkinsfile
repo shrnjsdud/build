@@ -13,7 +13,7 @@ node {
               sh 'git commit -a -m "upgrade"'
               sh 'git push git@github.com:shrnjsdud/deploy.git master'
                    
-              }  
+              }   
           }
      }
                    
