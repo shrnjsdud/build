@@ -5,10 +5,7 @@ node {
      stage('Build image') {
          app = docker.build("nky/hello")
      }
-     stage('Push image') {
-        
-         
-     }
+    
      stage('Deploy image') {
           dir("deploy"){
               sshagent(credentials : ['9377ca92-2995-4ae6-8566-34304131fffd']) {
@@ -18,7 +15,7 @@ node {
                    
               }  
           }
-
+     }
                    
      
 
