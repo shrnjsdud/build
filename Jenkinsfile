@@ -23,7 +23,7 @@ node {
               sh 'kustomize build > deploy.yaml'
               sh 'git add .'
               sh 'git commit -m "upgrade"'
-              sh 'git push origin master'
+              sh 'git push origin master' 
                    
               }   
           }
