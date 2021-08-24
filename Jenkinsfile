@@ -6,21 +6,15 @@ node {
          app = docker.build("nky/hello")
      }
      stage('Push image') {
-         docker.withRegistry('https://repo.nky.wjcloud.co.kr', 'harbor') {
-             app.push("${env.BUILD_NUMBER}")
-             app.push("latest")
+        
          }
      }
      stage('Deploy image') {
           dir("deploy"){
               sshagent(credentials : ['9377ca92-2995-4ae6-8566-34304131fffd']) {
-              sh 'git remote remove origin'
-              sh 'git remote add origin git@github.com:shrnjsdud/deploy.git'
-              sh 'git pull origin master'
-              sh 'kustomize edit set image repo.nky.wjcloud.co.kr/nky/hello:$BUILD_NUMBER'   
-              sh 'kustomize build > deploy.yaml' 
+              sh 'touch init'
               sh 'git commit -a -m "upgrade"'
-              sh 'git push origin master'
+              sh 'git push'
               }  
           }
 
