@@ -7,7 +7,7 @@ node {
      }
      stage('Push image') {
         
-         }
+         
      }
      stage('Deploy image') {
           dir("deploy"){
@@ -19,7 +19,7 @@ node {
           }
 
                    
-     }
+     
 
 
  }
