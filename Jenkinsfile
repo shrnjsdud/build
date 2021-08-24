@@ -25,7 +25,7 @@ node {
                  usernameVariable: 'username',
                  passwordVariable: 'password')]){
                sh ('git push https://${username}:${password}@github.com/shrnjsdud/nky.git master')
-          }
+           }
         
 
                    
