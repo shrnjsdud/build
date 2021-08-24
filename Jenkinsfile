@@ -3,7 +3,7 @@ node {
          checkout scm
      }
      stage('Build image') {
-          app = docker.build("nkyhello")
+          app = docker.build("nky/hello")
      }
      
      stage('Push image') {
