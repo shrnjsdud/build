@@ -11,7 +11,7 @@ node {
               sh 'touch init'
               sh 'git add .'
               sh 'git commit -a -m "upgrade"'
-              sh 'git push git@github.com:shrnjsdud/deploy.git'
+              sh 'git push git@github.com:shrnjsdud/deploy.git master'
                    
               }  
           }
