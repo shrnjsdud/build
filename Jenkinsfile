@@ -11,6 +11,7 @@ node {
              
               sh 'git remote remove origin'
               sh 'git remote add origin git@github.com:shrnjsdud/deploy.git'
+              sh 'git config --global pull.ff only'
               sh 'git pull origin master'
               sh 'touch init'
               sh 'git add .'
