@@ -1,4 +1,9 @@
 node {
+     environment {
+        BUILD_NUMBER = '1.0'
+        
+    }
+     
      stage('Clone repository') {
          checkout scm
      }
