@@ -28,6 +28,7 @@ node {
               sh 'cd overlays/dev && kustomize edit set image repo.nky.wjcloud.co.kr/nky/hello:${VERSION}'
               sh 'cd overlays/dev && kustomize build > ../../deploy.yaml'
               sh 'git add .'
+              sh 'git status'
               sh 'git commit -m "upgrade"'
               sh 'git push origin master' 
                    
