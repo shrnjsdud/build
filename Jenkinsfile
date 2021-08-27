@@ -1,8 +1,8 @@
 node {
-     environment {
-        def VERSION = '1.0'
+    
+     def VERSION = '1.0'
         
-    }
+    
      
      stage('Clone repository') {
          checkout scm
