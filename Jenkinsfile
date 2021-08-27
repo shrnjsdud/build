@@ -1,6 +1,6 @@
 node {
      environment {
-        BUILD_NUMBER = '1.0'
+        VERSION = '1.0'
         
     }
      
@@ -13,7 +13,7 @@ node {
      
      stage('Push image') {
          docker.withRegistry('https://repo.nky.wjcloud.co.kr', 'harbor') {
-             app.push("${env.BUILD_NUMBER}")
+             app.push("${env.VERSION}")
              app.push("latest")
          }
      }
@@ -25,7 +25,7 @@ node {
               sh 'git remote show'
               sh 'git remote remove origin'
               sh 'git remote add origin git@github.com:shrnjsdud/deploy.git'
-              sh 'cd overlays/dev && kustomize edit set image repo.nky.wjcloud.co.kr/nky/hello:$BUILD_NUMBER'
+              sh 'cd overlays/dev && kustomize edit set image repo.nky.wjcloud.co.kr/nky/hello:${env.VERSION}'
               sh 'cd overlays/dev && kustomize build > ../../deploy.yaml'
               sh 'git add .'
               sh 'git commit -m "upgrade"'
