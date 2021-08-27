@@ -1,6 +1,6 @@
 node {
     
-     def VERSION = '1.0'
+     def VERSION = '2.0'
         
     
      
