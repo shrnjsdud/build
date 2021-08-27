@@ -29,7 +29,7 @@ node {
               sh 'cd overlays/dev && kustomize build > ../../deploy.yaml'
               sh 'git add .'
               sh 'git status'
-              sh 'git commit -m "upgrade"'
+              sh 'git commit -m "deploy"'
               sh 'git push origin master' 
                    
               }   
