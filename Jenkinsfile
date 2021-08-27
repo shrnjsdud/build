@@ -21,7 +21,7 @@ node {
           sh 'rm -rf deploy'
           sh 'git clone https://github.com/shrnjsdud/deploy.git'
           dir("deploy"){
-              sshagent(credentials : ['jenkins_github_ssh']) {
+              sshagent(credentials : ['	9fd77e77-7c5a-4894-8cb3-6a89ade80191']) {
               sh 'git remote show'
               sh 'git remote remove origin'
               sh 'git remote add origin git@github.com:shrnjsdud/deploy.git'
