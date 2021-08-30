@@ -18,7 +18,7 @@ node {
              app.push("latest")
          }
      }
-     stage('Deploy image') {
+     stage('Push manifest') {
           sh 'rm -rf deploy'
           sh 'git clone https://github.com/shrnjsdud/deploy.git'
           dir("deploy"){
@@ -33,10 +33,8 @@ node {
               sh 'git commit -m "deploy"'
               sh 'git push origin master' 
                    
-              }   
-                
+              }  
           }
-         
      }
     
      slackSend (channel: '#cicd', color: '#00FF00', message: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")    
