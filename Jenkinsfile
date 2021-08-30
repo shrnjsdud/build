@@ -1,5 +1,6 @@
 node {
-    
+    try{
+     slackSend (channel: '#cicd', color: '#FFFF00', message: "STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
      def VERSION = '6.0'
         
     
@@ -37,8 +38,10 @@ node {
           }
          
      }
-                   
-     
+    
+     slackSend (channel: '#cicd', color: '#00FF00', message: "SUCCESSFUL: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")    
+     }catch(e){
+     slackSend (channel: '#cicd', color: '#FF0000', message: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
 
 
  }
