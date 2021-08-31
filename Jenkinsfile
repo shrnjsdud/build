@@ -1,26 +1,34 @@
 node {
+    
     try{
-     slackSend (channel: '#cicd', color: '#FFFF00', message: "STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
-    def VERSION = '5.0'
+        
+    slackSend (channel: '#cicd', color: '#FFFF00', message: "STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
+    def VERSION = '6.0'
         
     
      
-     stage('Clone repository') {
+     stage('Clone Build repository') {
          checkout scm
-     }
-     stage('Build image') {
-          app = docker.build("nky/hello")
-     }
+     }     
      
+        
      stage('Push image') {
+         app = docker.build("nky/hello")
          docker.withRegistry('https://repo.nky.wjcloud.co.kr', 'harbor') {
              app.push("${VERSION}")
              app.push("latest")
          }
      }
+      
+        
+        stage('Clone Deploy repository') {
+         sh 'rm -rf deploy'
+         sh 'git clone https://github.com/shrnjsdud/deploy.git'
+     }   
+        
+        
      stage('Push manifest') {
-          sh 'rm -rf deploy'
-          sh 'git clone https://github.com/shrnjsdud/deploy.git'
+          
           dir("deploy"){
               sshagent(credentials : ['jenkins_github_ssh']) {
               sh 'git remote show'
