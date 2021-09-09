@@ -3,7 +3,7 @@ node {
     try{
         
     slackSend (channel: '#cicd', color: '#FFFF00', message: "STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]' (${env.BUILD_URL})")
-     def VERSION = '12.2'
+     def VERSION = '1.0'
         
     
      
@@ -13,7 +13,7 @@ node {
      
         
      stage('Push image') {
-         app = docker.build("nky/hello")
+         app = docker.build("nky/wj_tech")
          docker.withRegistry('https://repo.nky.wjcloud.co.kr', 'harbor') {
              app.push("${VERSION}")
              app.push("latest")
@@ -34,7 +34,7 @@ node {
               sh 'git remote show'
               sh 'git remote remove origin'
               sh 'git remote add origin git@github.com:shrnjsdud/deploy.git'
-              sh "cd overlays/dev && kustomize edit set image repo.nky.wjcloud.co.kr/nky/hello:${VERSION}"
+              sh "cd overlays/dev && kustomize edit set image repo.nky.wjcloud.co.kr/nky/wj_tech:${VERSION}"
               sh 'cd overlays/dev && kustomize build > ../../deploy.yaml'
               sh 'git add .'
               sh 'git status'
