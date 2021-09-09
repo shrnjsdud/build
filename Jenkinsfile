@@ -21,7 +21,7 @@ node {
      }
       
         
-        stage('Clone Deploy repository') {
+     stage('Clone Deploy repository') {
          sh 'rm -rf deploy'
          sh 'git clone https://github.com/shrnjsdud/deploy.git'
      }   
