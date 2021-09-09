@@ -13,7 +13,7 @@ node {
      
         
      stage('Push image') {
-         app = docker.build("nky/wj_tech")
+         app = docker.build("nky/wj-tech")
          docker.withRegistry('https://repo.nky.wjcloud.co.kr', 'harbor') {
              app.push("${VERSION}")
              app.push("latest")
